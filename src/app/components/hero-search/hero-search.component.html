@@ -1,0 +1,14 @@
+<h1>Buscando a: <small>{{heroSearch}}</small></h1>
+<hr>
+
+<div class="alert alert-danger" role="alert" *ngIf="heros.length == 0">
+  No existen resultados con el nombre <strong>{{heroSearch}}</strong>
+</div>
+
+<div class="card-columns" *ngIf="heros.length > 0">
+  <app-hero-card [hero]="hero"
+                 [index]="hero.idx"
+                 (heroSelected)="showMore($event)"
+                 *ngFor="let hero of heros;">
+  </app-hero-card>
+</div>
